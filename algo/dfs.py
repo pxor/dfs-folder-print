@@ -1,21 +1,23 @@
 # Print tree like structure depending on depth
 def tree_structure(depth):
     for _ in range(depth):
-        print("-", end="")
+        print("--", end="")
 
 
 # Depth First Search algo printing files
-def dfs(graph, start, visited, depth, path):
-    visited.add(start)
-    path.append(start)
+def dfs(graph, start_node):
+    visited = set()
+    stack = [(start_node, 0)]
 
-    tree_structure(depth)
-    print(start)
-    for neighbor in graph[start]:
-        if neighbor not in visited:
+    while stack:
+        current_node, depth = stack.pop()
+        if current_node not in visited:
+            visited.add(current_node)
+            tree_structure(depth)
+            print(current_node)
             try:
-                dfs(graph, neighbor, visited, depth + 1, path)
+                for n in graph[current_node]:
+                    if n not in visited:
+                        stack.append((n, depth + 1))
             except KeyError:
                 pass
-
-            path.pop()
