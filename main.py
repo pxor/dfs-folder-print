@@ -10,4 +10,4 @@ start = os.path.basename(root_folder)
 visited_set = set()
 path_list = []
 
-d.dfs(graph, start, visited_set, 1, path_list)
+d.dfs(graph, start, visited_set, 0, path_list)
