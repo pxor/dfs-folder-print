@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dfs-project.main"
+version = "0.1.0"
+description = "depth_first_search poetry init"
+authors = ["pxor"]
+readme = "README.md"
+packages = [{include = "dfs_project"}]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.12"
+pathlib = "^1.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
